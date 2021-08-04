@@ -1,0 +1,106 @@
+.header_layout {
+  margin-top: 10px;
+  margin-left: 25px;
+}
+
+.tickets_span {
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+}
+
+.right_header {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.icon_width {
+  width: 50px;
+}
+
+.page_no {
+  margin: 0px 5px 0px 5px;
+}
+
+button {
+  background-color: #efefef !important;
+}
+
+.order_style {
+  background-color: #efefef;
+  margin: 0px 5px 0px 5px;
+  width: 24% !important;
+  padding-right: 0px !important;
+  padding-left: 5px !important;
+}
+
+.card_header {
+  margin-top: 10px !important;
+}
+
+.card {
+  background-color: white;
+  box-shadow: -3px 0px 0px 0px #45c363;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  line-height: 22px;
+}
+
+.card_inactive {
+  background-color: white;
+  box-shadow: -3px 0px 0px 0px red;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  line-height: 22px;
+}
+
+.response_due {
+  border: 1px solid dodgerblue;
+  padding: 4px;
+  background-color: lightcyan;
+  border-radius: 5px;
+}   
+
+.card_details {
+  padding: 15px;
+}
+
+.card_date {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card_icon {
+  font-size: 15px;
+  color: lightblue;
+}
+
+.card_order_no {
+  margin-top: 10px;
+}
+
+.card_layout {
+  overflow-y: scroll;
+  height: 600px;
+  padding: 5px;
+}
+
+.card_id {
+  padding-right: 10px;
+}
+
+.icon_image {
+  width: 4%;
+  position: fixed;
+  bottom: 25px;
+  right: 10px;
+}
+
+.activeTab {
+  background-color: green !important;
+}

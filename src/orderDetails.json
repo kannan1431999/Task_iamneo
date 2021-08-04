@@ -1,0 +1,136 @@
+{
+    "receivedOrders": [ 
+        {
+            "orderId": "#1",
+            "orderNo": "#45",
+            "items": "Paratha side dish (2 nos), Plain Dosa (1 nos), Butter Roti (5 nos)",
+            "dueDate": "May 31 2019 3:39PM",
+            "status": "active"
+        },
+        {
+            "orderId": "#2",
+            "orderNo": "#50",
+            "items": "Paratha side dish (2 nos), Plain Dosa (1 nos), Butter Roti (5 nos)",
+            "dueDate": "May 31 2019 2:50PM",
+            "status": "active"
+        },
+        {
+            "orderId": "#3",
+            "orderNo": "#45",
+            "items": "Paratha side dish (2 nos), Plain Dosa (1 nos), Butter Roti (5 nos)",
+            "dueDate": "May 31 2019 3:39PM",
+            "status": "inactive"
+        },
+        {
+            "orderId": "#4",
+            "orderNo": "#78",
+            "items": "Paratha side dish (2 nos), Plain Dosa (1 nos), Butter Roti (5 nos)",
+            "dueDate": "May 31 2019 5:00PM",
+            "status": "active"
+        },
+        {
+            "orderId": "#5",
+            "orderNo": "#75",
+            "items": "Paratha side dish (2 nos), Plain Dosa (1 nos), Butter Roti (5 nos)",
+            "dueDate": "May 31 2019 3:39PM",
+            "status": "active"
+        },
+        {
+            "orderId": "#6",
+            "orderNo": "#51",
+            "items": "Paratha side dish (2 nos), Plain Dosa (1 nos), Butter Roti (5 nos)",
+            "dueDate": "May 31 2019 5:00PM",
+            "status": "active"
+        },
+        {
+            "orderId": "#7",
+            "orderNo": "#60",
+            "items": "Paratha side dish (2 nos), Plain Dosa (1 nos), Butter Roti (5 nos)",
+            "dueDate": "May 31 2019 5:00PM",
+            "status": "active"
+        },
+        {
+            "orderId": "#8",
+            "orderNo": "#23",
+            "items": "Paratha side dish (2 nos), Plain Dosa (1 nos), Butter Roti (5 nos)",
+            "dueDate": "May 31 2019 2:50PM",
+            "status": "active" 
+        },
+        {
+            "orderId": "#9",
+            "orderNo": "#41",
+            "items": "Paratha side dish (2 nos), Plain Dosa (1 nos), Butter Roti (5 nos)",
+            "dueDate": "May 31 2019 5:00PM",
+            "status": "active" 
+        },
+        {
+            "orderId": "#10",
+            "orderNo": "#87",
+            "items": "Paratha side dish (2 nos), Plain Dosa (1 nos), Butter Roti (5 nos)",
+            "dueDate": "May 31 2019 3:39PM",
+            "status": "active" 
+        },
+        {
+            "orderId": "#11",
+            "orderNo": "#102",
+            "items": "Paratha side dish (2 nos), Plain Dosa (1 nos), Butter Roti (5 nos)",
+            "dueDate": "May 31 2019 2:50PM",
+            "status": "active" 
+        },
+        {
+            "orderId": "#12",
+            "orderNo": "#40",
+            "items": "Paratha side dish (2 nos), Plain Dosa (1 nos), Butter Roti (5 nos)",
+            "dueDate": "May 31 2019 2:50PM",
+            "status": "active" 
+        },
+        {
+            "orderId": "#13",
+            "orderNo": "#76",
+            "items": "Paratha side dish (2 nos), Plain Dosa (1 nos), Butter Roti (5 nos)",
+            "dueDate": "May 31 2019 2:50PM",
+            "status": "active" 
+        },
+        {
+            "orderId": "#14",
+            "orderNo": "#87",
+            "items": "Paratha side dish (2 nos), Plain Dosa (1 nos), Butter Roti (5 nos)",
+            "dueDate": "May 31 2019 2:50PM",
+            "status": "active" 
+        },
+        {
+            "orderId": "#15",
+            "orderNo": "#102",
+            "items": "Paratha side dish (2 nos), Plain Dosa (1 nos), Butter Roti (5 nos)",
+            "dueDate": "May 31 2019 2:50PM",
+            "status": "active" 
+        }
+    ],
+    "progressOrders": [ 
+        {
+            "orderId": "#1",
+            "orderNo": "#76",
+            "items": "Paratha side dish (2 nos), Plain Dosa (1 nos), Butter Roti (5 nos)",
+            "dueDate": "May 31 2019 3:39PM",
+            "status": "active"
+        },
+        {
+            "orderId": "#2",
+            "orderNo": "#45",
+            "items": "Paratha side dish (2 nos), Plain Dosa (1 nos), Butter Roti (5 nos)",
+            "dueDate": "May 31 2019 5:00PM",
+            "status": "active"
+        }
+    ],
+    "deliveredOrders": [ 
+        {
+            "orderId": "#1",
+            "orderNo": "#57",
+            "items": "Paratha side dish (2 nos), Plain Dosa (1 nos), Butter Roti (5 nos)",
+            "dueDate": "May 31 2019 2:50PM"
+        }
+    ],
+    "pickedUpOrders": [ 
+    ]
+
+}

@@ -14,24 +14,24 @@ class BodyLayout extends Component {
             delivered: [],
             pickedUp: [],
         };
-        orderedDetails.receivedOrders.forEach((data) => {
-            if (orderList[data.type] !== undefined) {
-                orderList[data.type].push(data);
+        orderedDetails.receivedOrders.forEach((receivedOrdersData) => {
+            if (orderList[receivedOrdersData.type] !== undefined) {
+                orderList[receivedOrdersData.type].push(receivedOrdersData);
             }
         })
-        orderedDetails.progressOrders.forEach((data) => {
-            if (orderList[data.type] !== undefined) {
-                orderList[data.type].push(data);
+        orderedDetails.progressOrders.forEach((progressOrdersData) => {
+            if (orderList[progressOrdersData.type] !== undefined) {
+                orderList[progressOrdersData.type].push(progressOrdersData);
             }
         })
-        orderedDetails.deliveredOrders.forEach((data) => {
-            if (orderList[data.type] !== undefined) {
-                orderList[data.type].push(data);
+        orderedDetails.deliveredOrders.forEach((deliveredOrdersData) => {
+            if (orderList[deliveredOrdersData.type] !== undefined) {
+                orderList[deliveredOrdersData.type].push(deliveredOrdersData);
             }
         })
-        orderedDetails.pickedUpOrders.forEach((data) => {
-            if (orderList[data.type] !== undefined) {
-                orderList[data.type].push(data);
+        orderedDetails.pickedUpOrders.forEach((pickedUpOrdersData) => {
+            if (orderList[pickedUpOrdersData.type] !== undefined) {
+                orderList[pickedUpOrdersData.type].push(pickedUpOrdersData);
             }
         })
         const list = [

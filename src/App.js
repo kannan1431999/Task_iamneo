@@ -106,11 +106,11 @@ class App extends Component {
       }
       return deliveredOrdersData;
   });
-  let pickedUpOrders = orderedDetails.pickedUpOrders.filter((pickedUpOrders) => {
-    if (pickedUpOrders.orderId === orderNo) {
-      pickedUpOrders.type = type;
+  let pickedUpOrders = orderedDetails.pickedUpOrders.filter((pickedUpOrdersData) => {
+    if (pickedUpOrdersData.orderId === orderNo) {
+      pickedUpOrdersData.type = type;
     }
-    return pickedUpOrders;
+    return pickedUpOrdersData;
 });
       this.setState({
           ...this.state,

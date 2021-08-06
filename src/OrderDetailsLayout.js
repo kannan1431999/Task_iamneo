@@ -3,7 +3,7 @@ import { Icon } from 'semantic-ui-react';
 
 class OrderDetailsLayout extends Component {
     render = () => {
-        const {receivedOrders, name} = this.props
+        const {receivedOrders, name, onDragStarted} = this.props
         return (
             <>
                 <div>
@@ -21,7 +21,12 @@ class OrderDetailsLayout extends Component {
                                     receivedOrders.map((data, index) => {
                                         return (
                                             <>
-                                            <div className={data.status === "active" ? "card" : 'card_inactive'} >
+                                            <div className={data.status === "active" ? "card" : 'card_inactive'} 
+                                            data-id={index}
+                                            key={index}
+                                             onDragStart = {(event) => onDragStarted(event, data, "row" )}
+                                             draggable
+                                            >
                                                 <div className="card_details">
                                                 <span className="card_id">{data.orderId}</span>
                                                 <span className="response_due">Response due</span>

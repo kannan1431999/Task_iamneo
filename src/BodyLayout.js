@@ -5,7 +5,41 @@ import logo from './chatimage.png';
 
 class BodyLayout extends Component {
     render = () => {
-        const {orderedDetails} = this.props;
+        const {
+            orderedDetails, dragEnd, onDragStarted, onDragOver, onDrop,
+        } = this.props;
+        const orderList = {
+            received: [],
+            progress: [],
+            delivered: [],
+            pickedUp: [],
+        };
+        orderedDetails.receivedOrders.forEach((data) => {
+            if (orderList[data.type] !== undefined) {
+                orderList[data.type].push(data);
+            }
+        })
+        orderedDetails.progressOrders.forEach((data) => {
+            if (orderList[data.type] !== undefined) {
+                orderList[data.type].push(data);
+            }
+        })
+        orderedDetails.deliveredOrders.forEach((data) => {
+            if (orderList[data.type] !== undefined) {
+                orderList[data.type].push(data);
+            }
+        })
+        orderedDetails.pickedUpOrders.forEach((data) => {
+            if (orderList[data.type] !== undefined) {
+                orderList[data.type].push(data);
+            }
+        })
+        const list = [
+            {id: 'receivedCard', header: 'Received orders', name: 'received', datas: orderList.received },
+            {id: 'progressCard', header: 'Progress orders', name: 'progress', datas: orderList.progress },
+            {id: 'deliveredCard', header: 'Delivered orders', name: 'delivered', datas: orderList.delivered },
+            {id: 'pickedUpCard', header: 'PickedUp orders', name: 'pickedUp', datas: orderList.pickedUp }
+        ];
         return (
             <>
                 <div>
@@ -14,18 +48,20 @@ class BodyLayout extends Component {
                             <Grid.Column width={15}>
                                 <Grid columns='equal'>
                                     <Grid.Row>
-                                        <Grid.Column className="order_style">
-                                            <OrderDetailsLayout name="RECEIVED ORDERSS" receivedOrders={orderedDetails.receivedOrders} />
-                                        </Grid.Column> 
-                                        <Grid.Column className="order_style">
-                                            <OrderDetailsLayout name="ORDER IN PROGRESS" receivedOrders={orderedDetails.progressOrders} />
-                                        </Grid.Column>
-                                        <Grid.Column className="order_style">
-                                            <OrderDetailsLayout name="ORDER IS READY FOR DELIVERY" receivedOrders={orderedDetails.deliveredOrders} />
-                                        </Grid.Column>
-                                        <Grid.Column className="order_style">
-                                            <OrderDetailsLayout name="ORDER PICK UP" receivedOrders={orderedDetails.pickedUpOrders} />
-                                        </Grid.Column>
+                                        {list.map((data, index) => (
+                                                <Grid.Column className="order_style" 
+                                                >
+                                                    <div
+                                                    onDragOver={(event)=> onDragOver(event)}
+                                                    onDrop={(event)=>onDrop(event, data.name)}
+                                                    >
+                                                    <OrderDetailsLayout name={data.header}
+                                                    dragEnd={dragEnd}
+                                                    onDragStarted={onDragStarted}
+                                                    receivedOrders={data.datas} />
+                                                    </div>
+                                            </Grid.Column>                                            
+                                        ))}
                                     </Grid.Row>
                                 </Grid>
                             </Grid.Column>

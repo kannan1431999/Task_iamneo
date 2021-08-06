@@ -77,6 +77,52 @@ class App extends Component {
     }, 300)
   }
 
+  onDragStarted = (event, data) => {
+    event.dataTransfer.setData("orderNo", data.orderId);
+  }
+  
+  onDragOver = (event, data) => {
+    event.preventDefault();
+  }
+  
+  onDrop = (event, type) => {
+    const {orderedDetails} = this.state;
+      let orderNo = event.dataTransfer.getData("orderNo");
+      let cardDetails = orderedDetails.receivedOrders.filter((task) => {
+          if (task.orderId === orderNo) {
+              task.type = type;
+          }
+          return task;
+      });
+      let cardDetails1 = orderedDetails.progressOrders.filter((task) => {
+        if (task.orderId === orderNo) {
+            task.type = type;
+        }
+        return task;
+    });
+    let cardDetails2 = orderedDetails.deliveredOrders.filter((task) => {
+      if (task.orderId === orderNo) {
+          task.type = type;
+      }
+      return task;
+  });
+  let cardDetails3 = orderedDetails.pickedUpOrders.filter((task) => {
+    if (task.orderId === orderNo) {
+        task.type = type;
+    }
+    return task;
+});
+      this.setState({
+          ...this.state,
+          orderedDetails: {
+            receivedOrders: cardDetails,
+            progressOrders: cardDetails1,
+            deliveredOrders: cardDetails2,
+            pickedUpOrders: cardDetails3,
+          }
+      });
+  }
+
   render = () => {
     const {orderedDetails, tab, isLoading} = this.state;
     return (
@@ -90,7 +136,12 @@ class App extends Component {
             </Grid.Row>
             <Grid.Row className="header_layout">
               <Grid.Column>
-                <BodyLayout orderedDetails={orderedDetails} />
+                <BodyLayout
+                dragEnd={this.dragEnd}
+                onDrop={this.onDrop}
+                onDragOver={this.onDragOver}
+                onDragStarted={this.onDragStarted}
+                orderedDetails={orderedDetails} />
               </Grid.Column>
             </Grid.Row>
           </Grid>

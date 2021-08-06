@@ -94,23 +94,23 @@ class App extends Component {
           }
           return task;
       });
-      let progressOrders = orderedDetails.progressOrders.filter((task) => {
-        if (task.orderId === orderNo) {
-            task.type = type;
+      let progressOrders = orderedDetails.progressOrders.filter((progressOrdersData) => {
+        if (progressOrdersData.orderId === orderNo) {
+          progressOrdersData.type = type;
         }
-        return task;
+        return progressOrdersData;
     });
-    let deliveredOrders = orderedDetails.deliveredOrders.filter((task) => {
-      if (task.orderId === orderNo) {
-          task.type = type;
+    let deliveredOrders = orderedDetails.deliveredOrders.filter((deliveredOrdersData) => {
+      if (deliveredOrdersData.orderId === orderNo) {
+        deliveredOrdersData.type = type;
       }
-      return task;
+      return deliveredOrdersData;
   });
-  let pickedUpOrders = orderedDetails.pickedUpOrders.filter((task) => {
-    if (task.orderId === orderNo) {
-        task.type = type;
+  let pickedUpOrders = orderedDetails.pickedUpOrders.filter((pickedUpOrders) => {
+    if (pickedUpOrders.orderId === orderNo) {
+      pickedUpOrders.type = type;
     }
-    return task;
+    return pickedUpOrders;
 });
       this.setState({
           ...this.state,

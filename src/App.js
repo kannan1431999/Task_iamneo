@@ -88,25 +88,25 @@ class App extends Component {
   onDrop = (event, type) => {
     const {orderedDetails} = this.state;
       let orderNo = event.dataTransfer.getData("orderNo");
-      let cardDetails = orderedDetails.receivedOrders.filter((task) => {
+      let receivedOrders = orderedDetails.receivedOrders.filter((task) => {
           if (task.orderId === orderNo) {
               task.type = type;
           }
           return task;
       });
-      let cardDetails1 = orderedDetails.progressOrders.filter((task) => {
+      let progressOrders = orderedDetails.progressOrders.filter((task) => {
         if (task.orderId === orderNo) {
             task.type = type;
         }
         return task;
     });
-    let cardDetails2 = orderedDetails.deliveredOrders.filter((task) => {
+    let deliveredOrders = orderedDetails.deliveredOrders.filter((task) => {
       if (task.orderId === orderNo) {
           task.type = type;
       }
       return task;
   });
-  let cardDetails3 = orderedDetails.pickedUpOrders.filter((task) => {
+  let pickedUpOrders = orderedDetails.pickedUpOrders.filter((task) => {
     if (task.orderId === orderNo) {
         task.type = type;
     }
@@ -115,10 +115,10 @@ class App extends Component {
       this.setState({
           ...this.state,
           orderedDetails: {
-            receivedOrders: cardDetails,
-            progressOrders: cardDetails1,
-            deliveredOrders: cardDetails2,
-            pickedUpOrders: cardDetails3,
+            receivedOrders,
+            progressOrders,
+            deliveredOrders,
+            pickedUpOrders,
           }
       });
   }

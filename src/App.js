@@ -1,153 +1,108 @@
-import React, { Component } from 'react';
-import './App.css';
-import 'semantic-ui-css/semantic.min.css'
-import { Grid } from 'semantic-ui-react';
+import React from 'react';
+import OrderList from './OrderList';
 import HeaderLayout from './HeaderLayout';
-import orderDetails from './orderDetails.json';
-import BodyLayout from './BodyLayout';
+import cardList from './dragCardList';
+import { DragDropContext, Droppable } from 'react-beautiful-dnd';
+import message from './chatimage.png';
+import './App.css';
+import {Grid, Image} from 'semantic-ui-react';
+import 'semantic-ui-css/semantic.min.css'
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      orderedDetails: orderDetails,
-      tab: 'all',
-      isLoading: false,
+class App extends React.Component {
+  constructor(){
+    super();
+    this.state={
+      cardData: cardList,
+      activeTab: 'all' 
     }
+  } 
+
+   handleTabChange = (name) => {
+   this.setState({
+     activeTab: name
+   });
   }
 
-  changeHandler = (name) => {
-    this.setState({
-      tab: name,
-    });
-    if (name === 'myTickets' || name === 'updated') {
-      this.setState({
-        orderedDetails : {
-          receivedOrders: [],
-          progressOrders: [],
-          deliveredOrders: [],
-          pickedUpOrders: [],
+   onDragEnd = (event) => {
+    const { destination, source, draggableId, type } = event;
+    const {cardData} = this.state;
+    if (!destination) {
+      return;
+    }
+    if (type === 'list') {
+      const newListIds = cardData.listIds;
+      newListIds.splice(source.index, 1);
+      newListIds.splice(destination.index, 0, draggableId);
+      return;
+    }
+    const sourceList = cardData.lists[source.droppableId];
+    const destinationList = cardData.lists[destination.droppableId];
+    const draggingCard = sourceList.cards.filter(
+      (card) => card.id === draggableId
+    )[0];
+    if (source.droppableId === destination.droppableId) {
+      sourceList.cards.splice(source.index, 1);
+      destinationList.cards.splice(destination.index, 0, draggingCard);
+      const newData = {
+        ...cardData,
+        lists: {
+          ...cardData.lists,
+          [sourceList.id]: destinationList,
         },
-      });
+      };
+      this.setState({ cardData: newData, });
     } else {
-      this.setState({
-        orderedDetails: orderDetails,
-      })
-    }
-  }
+      sourceList.cards.splice(source.index, 1);
+      destinationList.cards.splice(destination.index, 0, draggingCard);
 
-  SearchHandler = (e, { value }) => {
-    const {orderedDetails} = this.state;
-     const receivedOrders = orderedDetails.receivedOrders.filter((data) => {
-      if (data.orderNo.toLowerCase().includes(value.toLowerCase())) return true;
-      return false;
-    });
-    const progressOrders = orderedDetails.progressOrders.filter((data) => {
-      if (data.orderNo.toLowerCase().includes(value.toLowerCase())) return true;
-      return false;
-    });
-    const deliveredOrders = orderedDetails.deliveredOrders.filter((data) => {
-      if (data.orderNo.toLowerCase().includes(value.toLowerCase())) return true;
-      return false;
-    });
-    const pickedUpOrders = orderedDetails.pickedUpOrders.filter((data) => {
-      if (data.orderNo.toLowerCase().includes(value.toLowerCase())) return true;
-      return false;
-    });
-    if (value === '') {
-      this.setState({
-        orderedDetails: orderDetails,
-      })
-    } else {
-      this.setState({
-        isLoading: true,
-        orderedDetails : {
-          receivedOrders: receivedOrders,
-          progressOrders: progressOrders,
-          deliveredOrders: deliveredOrders,
-          pickedUpOrders: pickedUpOrders,
+      const newData = {
+        ...cardData,
+        lists: {
+          ...cardData.lists,
+          [sourceList.id]: sourceList,
+          [destinationList.id]: destinationList,
         },
-      });
+      };
+      this.setState({ cardData: newData, });
     }
-    setTimeout(() => {
-      this.setState({
-        isLoading: false,
-        
-      })
-    }, 300)
-  }
+  };
 
-  onDragStarted = (event, data) => {
-    event.dataTransfer.setData("orderNo", data.orderId);
-  }
-  
-  onDragOver = (event, data) => {
-    event.preventDefault();
-  }
-  
-  onDrop = (event, type) => {
-    const {orderedDetails} = this.state;
-      let orderNo = event.dataTransfer.getData("orderNo");
-      let receivedOrders = orderedDetails.receivedOrders.filter((task) => {
-          if (task.orderId === orderNo) {
-              task.type = type;
-          }
-          return task;
-      });
-      let progressOrders = orderedDetails.progressOrders.filter((progressOrdersData) => {
-        if (progressOrdersData.orderId === orderNo) {
-          progressOrdersData.type = type;
-        }
-        return progressOrdersData;
-    });
-    let deliveredOrders = orderedDetails.deliveredOrders.filter((deliveredOrdersData) => {
-      if (deliveredOrdersData.orderId === orderNo) {
-        deliveredOrdersData.type = type;
-      }
-      return deliveredOrdersData;
-  });
-  let pickedUpOrders = orderedDetails.pickedUpOrders.filter((pickedUpOrdersData) => {
-    if (pickedUpOrdersData.orderId === orderNo) {
-      pickedUpOrdersData.type = type;
-    }
-    return pickedUpOrdersData;
-});
-      this.setState({
-          ...this.state,
-          orderedDetails: {
-            receivedOrders,
-            progressOrders,
-            deliveredOrders,
-            pickedUpOrders,
-          }
-      });
-  }
-
-  render = () => {
-    const {orderedDetails, tab, isLoading} = this.state;
+render = () => {
+  const {cardData = {}, activeTab} = this.state;
     return (
-      <>
-        <div className="App">
-          <Grid>
-            <Grid.Row className="header_layout">
-              <Grid.Column>
-                <HeaderLayout changeHandler={this.changeHandler} tab={tab} SearchHandler={this.SearchHandler} isLoading={isLoading}/>
-              </Grid.Column>
-            </Grid.Row>
-            <Grid.Row className="header_layout">
-              <Grid.Column>
-                <BodyLayout
-                dragEnd={this.dragEnd}
-                onDrop={this.onDrop}
-                onDragOver={this.onDragOver}
-                onDragStarted={this.onDragStarted}
-                orderedDetails={orderedDetails} />
-              </Grid.Column>
-            </Grid.Row>
-          </Grid>
+        <div
+        >
+          <HeaderLayout handleTabChange={this.handleTabChange} activeTab={activeTab} />
+          <div className="body_layout">
+            <Grid>
+                <Grid.Column width={15}>
+                  <DragDropContext onDragEnd={this.onDragEnd}>
+                    <Droppable droppableId="app" type="list" direction="horizontal">
+                      {(provided) => (
+                        <div
+                          className="list_layout"
+                          ref={provided.innerRef}
+                          {...provided.droppableProps}
+                        >
+                          {Object.keys(cardData).length > 0 && cardData.listIds.map((listId, index) => {
+                            return (
+                              <OrderList list={cardData.lists[listId]} key={listId} index={index} />
+                            );
+                          })}
+                        </div>
+                      )}
+                    </Droppable>
+                  </DragDropContext>
+                </Grid.Column>
+                <Grid.Column  width={1}>
+                  <div className="chat_image">
+                    <Image src={message} alt="message" />
+                  </div>
+                </Grid.Column>
+            </Grid>
+          </div>
         </div>
-      </>
-    )
+    );
   }
 }
 

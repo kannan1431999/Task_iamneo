@@ -12,7 +12,6 @@ const data = {
           orderNo: "#65",
           items: "Paratha side dish (2 nos), Plain Dosa (1 nos), Butter Roti (5 nos)",
           dueDate: "May 31 2019 10:39PM",
-          isActive: true
         },
         {
           id: 'card-2',
@@ -20,7 +19,6 @@ const data = {
           orderNo: "#66",
           items: "Paratha side dish (2 nos), Plain Dosa (1 nos), Butter Roti (5 nos)",
           dueDate: "May 31 2019 10:39PM",
-          isActive: true
         },
         {
           id: 'card-3',
@@ -28,7 +26,6 @@ const data = {
           orderNo: "#67",
           items: "Paratha side dish (2 nos), Plain Dosa (1 nos), Butter Roti (5 nos)",
           dueDate: "May 31 2019 10:39PM",
-          isActive: true
         },
       ],
     },
@@ -42,7 +39,6 @@ const data = {
           orderNo: "#68",
           items: "Paratha side dish (2 nos), Plain Dosa (1 nos), Butter Roti (5 nos)",
           dueDate: "May 31 2019 10:39PM",
-          isActive: true
         },
         {
           id: 'card-5',
@@ -50,7 +46,6 @@ const data = {
           orderNo: "#69",
           items: "Paratha side dish (2 nos), Plain Dosa (1 nos), Butter Roti (5 nos)",
           dueDate: "May 31 2019 10:39PM",
-          isActive: true
         },
         {
           id: 'card-6',
@@ -58,7 +53,6 @@ const data = {
           orderNo: "#70",
           items: "Paratha side dish (2 nos), Plain Dosa (1 nos), Butter Roti (5 nos)",
           dueDate: "May 31 2019 10:39PM",
-          isActive: true
         },
       ],
     },
@@ -72,7 +66,6 @@ const data = {
           orderNo: "#71",
           items: "Paratha side dish (2 nos), Plain Dosa (1 nos), Butter Roti (5 nos)",
           dueDate: "May 31 2019 10:39PM",
-          isActive: true
         },
         {
           id: 'card-8',
@@ -80,7 +73,6 @@ const data = {
           orderNo: "#72",
           items: "Paratha side dish (2 nos), Plain Dosa (1 nos), Butter Roti (5 nos)",
           dueDate: "May 31 2019 10:39PM",
-          isActive: true
         },
         {
           id: 'card-9',
@@ -88,7 +80,6 @@ const data = {
           orderNo: "#73",
           items: "Paratha side dish (2 nos), Plain Dosa (1 nos), Butter Roti (5 nos)",
           dueDate: "May 31 2019 10:39PM",
-          isActive: true
         },
       ],
     },
@@ -102,7 +93,6 @@ const data = {
           orderNo: "#74",
           items: "Paratha side dish (2 nos), Plain Dosa (1 nos), Butter Roti (5 nos)",
           dueDate: "May 31 2019 10:39PM",
-          isActive: true
         },
         {
           id: 'card-11',
@@ -110,7 +100,6 @@ const data = {
           orderNo: "#75",
           items: "Paratha side dish (2 nos), Plain Dosa (1 nos), Butter Roti (5 nos)",
           dueDate: "May 31 2019 10:39PM",
-          isActive: true
         },
         {
           id: 'card-12',
@@ -118,7 +107,6 @@ const data = {
           orderNo: "#76",
           items: "Paratha side dish (2 nos), Plain Dosa (1 nos), Butter Roti (5 nos)",
           dueDate: "May 31 2019 10:39PM",
-          isActive: true
         },
       ],
     },
